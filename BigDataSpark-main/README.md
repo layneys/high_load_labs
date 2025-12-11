@@ -1,3 +1,12 @@
+# Инструкция
+1. docker-compose up.
+2. Скопировать токен jupyter-notebook из логов docker.
+3. Перейти в web-gui jupyter lab по [localhost:8890](http://localhost:8890/).
+4. Ввести токен и открыть директорию work.
+5. Jupyter-notebook для заполнения модели звезды - build_fill_star.ipynb
+6. Jupyter-notebook для создания витрин - build_reports_ch.ipynb
+
+
 # BigDataSpark
 
 Анализ больших данных - лабораторная работа №2 - ETL реализованный с помощью Spark

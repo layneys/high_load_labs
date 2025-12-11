@@ -44,7 +44,7 @@ services:
       - '7077:7077'
     volumes:
       - ./jars/postgresql-42.7.8.jar:/opt/spark/jars/postgresql-42.7.8.jar
-      - ./jars/clickhouse-jdbc-0.9.1.jar:/opt/spark/jars/clickhouse-jdbc-0.9.1.jar
+      - ./jars/clickhouse-jdbc-0.4.6-all.jar:/opt/spark/jars/clickhouse-jdbc-0.4.6-all.jar
     networks:
       - lab2
 
@@ -56,14 +56,14 @@ services:
     command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     environment:
       - SPARK_WORKER_DIR=/tmp/spark-work
-      - SPARK_WORKER_CORES=2
-      - SPARK_WORKER_MEMORY=2g
+      - SPARK_WORKER_CORES=4
+      - SPARK_WORKER_MEMORY=4g
       - SPARK_WORKER_WEBUI_PORT=8081
     ports:
       - '8081:8081'
     volumes:
       - ./jars/postgresql-42.7.8.jar:/opt/spark/jars/postgresql-42.7.8.jar
-      - ./jars/clickhouse-jdbc-0.9.1.jar:/opt/spark/jars/clickhouse-jdbc-0.9.1.jar
+      - ./jars/clickhouse-jdbc-0.4.6-all.jar:/opt/spark/jars/clickhouse-jdbc-0.4.6-all.jar
     depends_on:
       - spark_master
     networks:
@@ -81,7 +81,7 @@ services:
     volumes:
       - ./notebooks:/home/jovyan/work  
       - ./jars/postgresql-42.7.8.jar:/opt/spark/jars/postgresql-42.7.8.jar
-      - ./jars/clickhouse-jdbc-0.9.1.jar:/opt/spark/jars/clickhouse-jdbc-0.9.1.jar
+      - ./jars/clickhouse-jdbc-0.4.6-all.jar:/opt/spark/jars/clickhouse-jdbc-0.4.6-all.jar
     depends_on:
       - spark_master
       - postgres
